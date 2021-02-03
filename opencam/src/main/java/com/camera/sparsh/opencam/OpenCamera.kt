@@ -31,7 +31,7 @@ open class OpenCamera {
         fun begin(c: Context, activity: Activity, cameraStatus: Int) {
             rxPermissions = RxPermissions(activity)
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
-                if (checkAndRequestCameraPermission(c, activity)) {
+                if (checkAndRequestCameraPermission(c, activity, cameraStatus)) {
                     val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                     /* capture the result in the activity whose object is passed to this function */
                     activity.startActivityForResult(cameraIntent, cameraStatus)
@@ -46,18 +46,22 @@ open class OpenCamera {
             }
         }
 
-        private fun checkAndRequestCameraPermission(context: Context, activity: Activity): Boolean {
+        private fun checkAndRequestCameraPermission(
+            context: Context,
+            activity: Activity,
+            cameraStatus: Int
+        ): Boolean {
             val result = ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA)
             if (result == PackageManager.PERMISSION_GRANTED) {
                 return true
             } else {
-                requestPermission(context, activity)
+                requestPermission(context, activity, cameraStatus)
             }
 
             return false
         }
 
-        private fun requestPermission(context: Context, activity: Activity) {
+        private fun requestPermission(context: Context, activity: Activity, cameraStatus: Int) {
             rxPermissions!!.request(
                 Manifest.permission.CAMERA
             )
@@ -65,7 +69,7 @@ open class OpenCamera {
                     if (granted) {
 
                         /*Got all the permissions here*/
-                        checkAndRequestCameraPermission(context, activity)
+                        begin(context, activity, cameraStatus)
 
 
                     } else {
@@ -83,7 +87,7 @@ open class OpenCamera {
                                     ) { dialog: DialogInterface?, which: Int ->
                                         requestPermission(
                                             context,
-                                            activity
+                                            activity, cameraStatus
                                         )
                                     }
                                     .setNegativeButton(
