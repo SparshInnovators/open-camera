@@ -15,7 +15,7 @@ allprojects {
  **Step 2** : Add the dependency
   ```
   dependencies {
-	        implementation 'com.github.SparshInnovators:open-camera:1.2'
+	        implementation 'com.github.SparshInnovators:open-camera:1.5'
 	}
 ```
 
