@@ -21,8 +21,8 @@ allprojects {
 
 
 And then in your Activity you can get the result in onActivityResult(), check for the status code **2001**.
-**JAVA**
 
+**JAVA**
 ```
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     if (requestCode == 2001) {
