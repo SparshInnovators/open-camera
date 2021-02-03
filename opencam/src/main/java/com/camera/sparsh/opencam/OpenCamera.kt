@@ -95,7 +95,6 @@ open class OpenCamera {
                                     ) { dialog: DialogInterface?, which: Int -> false }
                                     .create()
                                     .show()
-
                             }
                         }
                     }
