@@ -19,13 +19,15 @@ allprojects {
 	}
 ```
 
-Starting the Camera
+**Step 3** : Starting the Camera
 
 ```
 OpenCamera.begin(Context, this, Permission Status)
 ```
 Permission Status - It is the status code that will be received in the **``` onActivityResult() ```**
 And then in your Activity you can get the result in onActivityResult().
+
+**Step 4** : Handle the Callback in your activity.
 
 **Java**
 ```
