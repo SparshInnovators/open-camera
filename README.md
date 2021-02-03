@@ -18,3 +18,26 @@ allprojects {
 	        implementation 'com.github.SparshInnovators:open-camera:1.0'
 	}
 ```
+
+
+And then in your Activity you can get the result in onActivityResult(), check for the status code **2001**.
+**JAVA**
+
+```protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (requestCode == 2001) {
+    	  Bitmap image = (Bitmap) data.getExtras().get("data");
+         //Your have got the result here
+    }
+}
+```
+**Kotlin**
+
+```
+ protected fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+        if (requestCode == 2001) {
+            val image = data.extras!!["data"] as Bitmap?
+            //Your have got the result here
+        }
+    }
+```
+    
