@@ -24,7 +24,7 @@ Starting the Camera
 ```
 OpenCamera.begin(Context, this, Permission Status)
 ```
-Permission Status - It is the status code that will be received in the |onActivityResult|
+Permission Status - It is the status code that will be received in the [onActivityResult]
 And then in your Activity you can get the result in onActivityResult(), check for the status code **2001**.
 
 **Java**
