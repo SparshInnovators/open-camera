@@ -23,7 +23,8 @@ allprojects {
 And then in your Activity you can get the result in onActivityResult(), check for the status code **2001**.
 **JAVA**
 
-```protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+```
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     if (requestCode == 2001) {
     	  Bitmap image = (Bitmap) data.getExtras().get("data");
          //Your have got the result here
