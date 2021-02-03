@@ -24,13 +24,13 @@ Starting the Camera
 ```
 OpenCamera.begin(Context, this, Permission Status)
 ```
-Permission Status - It is the status code that will be received in the [onActivityResult]
-And then in your Activity you can get the result in onActivityResult(), check for the status code **2001**.
+Permission Status - It is the status code that will be received in the **``` onActivityResult() ```**
+And then in your Activity you can get the result in onActivityResult().
 
 **Java**
 ```
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    if (requestCode == 2001) {
+    if (requestCode == Permission Status) {
     	  Bitmap image = (Bitmap) data.getExtras().get("data");
          //Your have got the result here
     }
@@ -40,7 +40,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 ```
  protected fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
-        if (requestCode == 2001) {
+        if (requestCode == Permission Status) {
             val image = data.extras!!["data"] as Bitmap?
             //Your have got the result here
         }
